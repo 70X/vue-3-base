@@ -1,23 +1,12 @@
 <script setup lang="ts">
-import { reactive } from 'vue';
 import TodoItem from './TodoItem.vue';
+import { useTodosStore } from '../todos.store';
 
-const list = [{ id: "abc", text: "Buy a bike", checked: false }]
-
-const state = reactive({ list })
-
-function onChecked(id: string, flag: boolean) {
-	state.list = state.list.map((item) => {
-		if (item.id === id) {
-			item.checked = flag;
-		}
-		return item;
-	})
-}
-
+const store = useTodosStore()
+const { change } = store
 </script>
 <template>
-	<div v-for="item in state.list" :key="item.id">
-		<TodoItem :item @on-checked="onChecked(item.id, !item.checked)" />
+	<div v-for="item in store.list" :key="item.id">
+		<TodoItem :item @on-checked="change(item.id, !item.checked)" />
 	</div>
 </template>
