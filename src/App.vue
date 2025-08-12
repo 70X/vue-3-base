@@ -3,7 +3,7 @@ const activeClassColor = "text-green-500"
 </script>
 
 <template>
-	<div class="flex flex-col h-dvh w-dvw p-5">
+	<div class="flex flex-col h-dvh w-dvw p-5 gap-5">
 		<div class="flex w-100 justify-between">
 			<h1 class="text-purple-600">Logo: Vue 3 + Router + tailwindcss</h1>
 			<p>
