@@ -22,11 +22,10 @@ export const useTodosStore = defineStore("todos", () => {
     list = list.filter((item) => item.id !== id);
   };
   const change = (id: string, flag: boolean) => {
-    list = list.map((item) => {
+    list.map((item) => {
       if (item.id === id) {
         item.checked = flag;
       }
-      return item;
     });
   };
   return { list, add, remove, change };
